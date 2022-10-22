@@ -1,4 +1,4 @@
-import { recipeAPIData } from './apiCalls';
+import { getRecipeData } from './apiCalls';
 import './styles.css';
 import RecipeRepository from './classes/RecipeRepository';
 import Recipe from "./classes/Recipe";
@@ -16,9 +16,13 @@ let randomUser;
 let user;
 let foundRecipe;
 let homeView = true;
-let recipe1 = new Recipe(recipeAPIData)
-console.log("BIG LABEL", recipeAPIData)
-console.log("WHATS UP", recipe1)
+const recipeAPIData = getRecipeData
+// Promise.all(getRecipeData).then(values => {
+//     // console.log("VALUES", values)
+//     return values
+// })
+// console.log("WHATS UP", getRecipeData)
+console.log("HEYYYYY", recipeAPIData)
 
 // ~~~~~~~~~~~~~~ Query Selectors ~~~~~~~~~~~~~~~~~~~~
 const allRecipes = document.querySelector("#recipeRepository");
@@ -103,7 +107,8 @@ function displayFilteredFavorite() {
 }
 
 function displayAllRecipes() {
-    recipeRepository = new RecipeRepository(recipeData);
+    recipeRepository = new RecipeRepository(getRecipeData);
+    console.log("RECIPEREPOS", recipeRepository)
     return recipeRepository.recipes.forEach((current) => {
         displayRecipePreview(current, allRecipes)
     })
