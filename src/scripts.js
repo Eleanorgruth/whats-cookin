@@ -1,4 +1,4 @@
-import apiCalls from './apiCalls';
+import { recipeAPIData } from './apiCalls';
 import './styles.css';
 import RecipeRepository from './classes/RecipeRepository';
 import Recipe from "./classes/Recipe";
@@ -16,6 +16,9 @@ let randomUser;
 let user;
 let foundRecipe;
 let homeView = true;
+let recipe1 = new Recipe(recipeAPIData)
+console.log("BIG LABEL", recipeAPIData)
+console.log("WHATS UP", recipe1)
 
 // ~~~~~~~~~~~~~~ Query Selectors ~~~~~~~~~~~~~~~~~~~~
 const allRecipes = document.querySelector("#recipeRepository");
