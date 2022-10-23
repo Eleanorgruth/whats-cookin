@@ -6,6 +6,12 @@ body {
   margin: 0;
 }
 
+.favorite-module {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .user-info{
   padding-left: 2vw;
 }

@@ -69,6 +69,9 @@ saveRecipeButton.addEventListener('click', addRecipeToFavorites);
 homeButton.addEventListener('click', displayHomePage);
 favoritesView.addEventListener('dblclick', removeFromFavorites);
 favoritesView.addEventListener('click', viewRecipeDetail);
+///////WIP
+favoritesView.addEventListener('click', deleteFavoriteRecipe);
+
 submitButton.addEventListener('click', () => {
     if(homeView) {searchForRecipe()}
     else {searchFavorites()}
@@ -128,11 +131,16 @@ function displayAllRecipes() {
     })
 }
 
+///**90% delete feature complete. Need to fix: show recipe details in 
+///favotire view ***/
+/////////WIP
 function viewRecipeDetail(event) {
-    hide(deleteInstructions)
-    viewRecipeInstructions(event);
-    viewRecipeTotalCost(event);
-    viewRecipeIngredients(event);
+    if(event.target.classList.contains('fullcap')){
+        hide(deleteInstructions)
+        viewRecipeInstructions(event);
+        viewRecipeTotalCost(event);
+        viewRecipeIngredients(event);
+    }
 }
 
 function viewRecipeIngredients(event) {
@@ -206,7 +214,7 @@ function addRecipeToFavorites() {
     return user.addRecipesToCook(foundRecipe);
 };
 
-function displayFavorites() {
+function displayFavorites(event) {
    hide(allRecipes);
    hide(singleRecipe);
    show(favoritesView);
@@ -216,10 +224,40 @@ function displayFavorites() {
    hide(ingredientSidebar);
    show(deleteInstructions)
    favoritesView.innerHTML = '';
+
    user.recipesToCook.forEach((current) => {
-    displayRecipePreview(current, favoritesView)
+    console.log("currentid", current.id);
+    favoritesView.innerHTML += `
+    <div class = "favorite-module">
+    <div class = "fullwrap" id="${current.id}">
+    <img src="${current.image}" alt="${current.name}">
+    <div class="fullcap">
+        ${current.name}
+    </div>
+    </div>
+    <button type="button" class="delete-button" id="${current.id}">Delete</button>
+    </div>`
     });
     homeView = false;
+}
+
+///////////WIP
+function deleteFavoriteRecipe(event){
+    if(event.target.classList.contains('delete-button')){
+        console.log("delete:", Number(event.target.id))
+    }
+    const favoriteList = user.recipesToCook;
+
+    console.log("favoriteList BEFORE:", favoriteList);
+    foundRecipe = favoriteList.find((current) => {
+        return current.id === Number(event.target.id);
+    });
+    console.log("found recipe to delete:", foundRecipe);
+    user.removeRecipesToCook(foundRecipe)
+    console.log("favoriteList AFTER:", favoriteList);
+
+    displayFavorites(event);
+
 }
 
 function displayHomePage() {
