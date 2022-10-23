@@ -16,13 +16,24 @@ let randomUser;
 let user;
 let foundRecipe;
 let homeView = true;
-const recipeAPIData = getRecipeData
-// Promise.all(getRecipeData).then(values => {
-//     // console.log("VALUES", values)
-//     return values
-// })
-// console.log("WHATS UP", getRecipeData)
-console.log("HEYYYYY", recipeAPIData)
+
+//might need a promiseAll
+
+// let recipeAPI = getRecipeData.then(data => {
+//         console.log("API", data.recipeData)
+//         return data.recipeData
+//         })
+
+//ISSUE: its executing faster than the API finishing
+//set a timer or *recommended* conditional to based on status resolved, rejected, pending
+
+//note: Promise.all() good for multiple fetches
+// console.log("recipeAPI", recipeAPI);
+
+function setup(){
+
+}
+
 
 // ~~~~~~~~~~~~~~ Query Selectors ~~~~~~~~~~~~~~~~~~~~
 const allRecipes = document.querySelector("#recipeRepository");
@@ -106,13 +117,20 @@ function displayFilteredFavorite() {
     };
 }
 
+//////////////////WIP
 function displayAllRecipes() {
-    recipeRepository = new RecipeRepository(getRecipeData);
-    console.log("RECIPEREPOS", recipeRepository)
-    return recipeRepository.recipes.forEach((current) => {
+    let returnedRecipes = getRecipeData.then(data => {
+        recipeRepository = new RecipeRepository(data.recipeData);
+        console.log("RESCIPE REPO", recipeRepository);
+        return recipeRepository
+        })
+
+        console.log("HERE", returnedRecipes);
+    return returnedRecipes.recipes.forEach((current) => {
         displayRecipePreview(current, allRecipes)
     })
 }
+///////////////////////
 
 function viewRecipeDetail(event) {
   viewRecipeInstructions(event);
