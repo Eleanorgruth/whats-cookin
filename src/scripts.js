@@ -209,6 +209,9 @@ function searchFavoriteRecipeByTag() {
 
 function searchHomeRecipeByName() {
     allRecipes.innerHTML = ''
+    if(homeView){
+        currentView.innerText = capitalizeFirstLetter(searchBar.value) + " Recipes"
+    }
     const filteredRecipes = recipeRepository.filterName(searchBar.value.toLowerCase())
     filteredRecipes.forEach((current) => {
         displayRecipePreview(current, allRecipes)
@@ -218,6 +221,9 @@ function searchHomeRecipeByName() {
 
 function searchFavoriteRecipeByName() {
     favoritesView.innerHTML = ''
+    if(!homeView){
+        currentView.innerText = "Favorite " + capitalizeFirstLetter(searchBar.value) + " Recipes"
+    }
     const filteredFavorites = user.filterToCookByName(searchBar.value.toLowerCase())
     filteredFavorites.forEach((current) => {
         displayRecipePreview(current, favoritesView)
