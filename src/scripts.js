@@ -37,6 +37,7 @@ const homeButton = document.querySelector('#home-button')
 const submitButton = document.querySelector('#submit-search-button')
 const searchBar = document.querySelector('#search-bar')
 const removeRecipeButton = document.querySelector('#remove-recipe-button')
+const currentView = document.querySelector('.current-view-message')
 
 // ~~~~~~~~~~~~~~ Event Listeners ~~~~~~~~~~~~~~~~~~~~
 window.addEventListener('load', fetchData([usersURL, recipesURL, ingredientsURL]))
@@ -88,6 +89,7 @@ function randomizeUser(data) {
 // ~~~~~~~~~~~~~~ Main View Functions ~~~~~~~~~~~~~~~~~~~~
 function displayHomePage() {
     allRecipes.innerHTML = ''
+    // currentView.innerText = 'All Recipes'
     hide(removeRecipeButton)
     show(allRecipes)
     hide(singleRecipe)
@@ -101,6 +103,7 @@ function displayHomePage() {
 }
 
 function displayFavoritesPage() {
+    // currentView.innerText = 'Favorite Recipes'
     hide(removeRecipeButton)
     hide(allRecipes)
     hide(singleRecipe)
@@ -123,6 +126,7 @@ function displayRecipeDetailPage(event) {
     if (user.recipesToCook.length > 0 && user.recipesToCook.includes(foundRecipe)) {
         show(removeRecipeButton)
     } else {hide(removeRecipeButton)}
+    // currentView.innerText = foundRecipe.name
     show(favoriteButton)
     displayRecipeInstructions(event)
     displayRecipeTotalCost(event)
