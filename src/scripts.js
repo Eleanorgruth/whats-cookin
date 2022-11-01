@@ -103,7 +103,7 @@ function displayHomePage() {
 }
 
 function displayFavoritesPage() {
-    // currentView.innerText = 'Favorite Recipes'
+    currentView.innerText = 'Favorite Recipes'
     hide(removeRecipeButton)
     hide(allRecipes)
     hide(singleRecipe)
