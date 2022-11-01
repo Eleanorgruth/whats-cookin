@@ -172,12 +172,14 @@ function searchHomeRecipeByTag() {
     const tagSelected = determineSelectedTagValue()
     const tagSelectedList = recipeRepository.filterTag(tagSelected)
     allRecipes.innerHTML = ''
-    if (tagSelected === 'reset all' && homeView === true) {
+    if (tagSelected === 'reset all' && homeView) {
         currentView.innerText = 'All Recipes'
         displayAllRecipes()
     }
     else {
-        currentView.innerText = capitalizeFirstLetter(tagSelected) + " Recipes"
+        if(homeView){
+            currentView.innerText = capitalizeFirstLetter(tagSelected) + " Recipes"
+        }
         return tagSelectedList.forEach((current) => {
             displayRecipePreview(current, allRecipes)
         })
