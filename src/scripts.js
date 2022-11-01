@@ -189,14 +189,14 @@ function searchFavoriteRecipeByTag() {
     const favList = user.recipesToCook
     const tagSelectedList = user.filterToCookByTag(tagSelected)
     favoritesView.innerHTML = ''
-    if (tagSelected === 'reset all' && homeView === false) {
+    if (tagSelected === 'reset all' && !homeView) {
         currentView.innerText = "Favorite Recipes"
         return favList.forEach((current) => {
             displayRecipePreview(current, favoritesView)
         })
     }
     else {
-        if(homeView === false){
+        if(!homeView){
             currentView.innerText = "Favorite " + capitalizeFirstLetter(tagSelected) + " Recipes"
         }
         return tagSelectedList.forEach((current) => {
