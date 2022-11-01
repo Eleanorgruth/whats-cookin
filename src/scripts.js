@@ -172,10 +172,12 @@ function searchHomeRecipeByTag() {
     const tagSelected = determineSelectedTagValue()
     const tagSelectedList = recipeRepository.filterTag(tagSelected)
     allRecipes.innerHTML = ''
-    if (tagSelected === 'reset all') {
+    if (tagSelected === 'reset all' && homeView === true) {
+        currentView.innerText = 'All Recipes'
         displayAllRecipes()
     }
     else {
+        currentView.innerText = capitalizeFirstLetter(tagSelected) + " Recipes"
         return tagSelectedList.forEach((current) => {
             displayRecipePreview(current, allRecipes)
         })
@@ -187,12 +189,16 @@ function searchFavoriteRecipeByTag() {
     const favList = user.recipesToCook
     const tagSelectedList = user.filterToCookByTag(tagSelected)
     favoritesView.innerHTML = ''
-    if (tagSelected === 'reset all') {
+    if (tagSelected === 'reset all' && homeView === false) {
+        currentView.innerText = "Favorite Recipes"
         return favList.forEach((current) => {
             displayRecipePreview(current, favoritesView)
         })
     }
     else {
+        if(homeView === false){
+            currentView.innerText = "Favorite " + capitalizeFirstLetter(tagSelected) + " Recipes"
+        }
         return tagSelectedList.forEach((current) => {
             displayRecipePreview(current, favoritesView)
         })
@@ -275,4 +281,8 @@ function hide(element) {
 
 function show(element) {
     element.classList.remove('hidden')
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
