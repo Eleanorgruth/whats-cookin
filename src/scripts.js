@@ -120,6 +120,7 @@ function displayFavoritesPage() {
     show(filterSidebar)
     hide(ingredientSidebar)
     favoritesView.innerHTML = ''
+    currentView.innerText = 'Favorite Recipes'
     user.recipesToCook.forEach((current) => {
         displayRecipePreview(current, favoritesView)
     })
