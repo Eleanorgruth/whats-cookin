@@ -37,6 +37,8 @@ const homeButton = document.querySelector('#home-button')
 const submitButton = document.querySelector('#submit-search-button')
 const searchBar = document.querySelector('#search-bar')
 const removeRecipeButton = document.querySelector('#remove-recipe-button')
+const currentView = document.querySelector('.current-view-message')
+
 
 // ~~~~~~~~~~~~~~ Event Listeners ~~~~~~~~~~~~~~~~~~~~
 window.addEventListener('load', fetchData([usersURL, recipesURL, ingredientsURL]))
