@@ -229,6 +229,7 @@ function searchHomeRecipeByName() {
 
 function searchFavoriteRecipeByName() {
     favoritesView.innerHTML = ''
+    currentView.innerText = "Favorite " + capitalizeFirstLetter(searchBar.value) + " Recipes"
     const filteredFavorites = user.filterToCookByName(searchBar.value.toLowerCase())
     filteredFavorites.forEach((current) => {
         displayRecipePreview(current, favoritesView)
