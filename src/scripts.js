@@ -215,6 +215,7 @@ function resetFilter() {
 
 function searchHomeRecipeByName() {
     allRecipes.innerHTML = ''
+    currentView.innerText = capitalizeFirstLetter(searchBar.value) + " Recipes"
     const filteredRecipes = recipeRepository.filterName(searchBar.value.toLowerCase())
     filteredRecipes.forEach((current) => {
         displayRecipePreview(current, allRecipes)
