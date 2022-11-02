@@ -77,6 +77,7 @@ function fetchData(urls) {
             ingredients = new Ingredients(apiIngredients.ingredientsData)
             displayAllRecipes()
             randomizeUser(apiUsers.usersData)
+            activeRadioFilter()
         })
         .catch(err => console.log('Fetch Error: ', err))
 }
@@ -179,21 +180,23 @@ function displayRecipeTotalCost() {
 }
 
 // ~~~~~~~~~~~~~~ Filter Functions ~~~~~~~~~~~~~~~~~~~~
-radioButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        if(homeView) {
-            allRecipes.innerHTML = ''
-            recipeRepository.filterTag(button.value).forEach(current => {
-            displayRecipePreview(current, allRecipes)
-            })  
-        }
-        else if(!homeView)
-            favoritesView.innerHTML = ''
-            user.filterToCookByTag(button.value).forEach(current => {
-            displayRecipePreview(current, favoritesView)
-     })
+function activeRadioFilter() {
+    radioButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            if(homeView) {
+                allRecipes.innerHTML = ''
+                recipeRepository.filterTag(button.value).forEach(current => {
+                displayRecipePreview(current, allRecipes)
+                })  
+            }
+            else if(!homeView)
+                favoritesView.innerHTML = ''
+                user.filterToCookByTag(button.value).forEach(current => {
+                displayRecipePreview(current, favoritesView)
+         })
+        })
     })
-})
+}
 
 function resetFilter() {
     radioButtons.forEach(button => {
