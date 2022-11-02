@@ -235,7 +235,8 @@ function searchFavoriteRecipeByName() {
         displayRecipePreview(current, favoritesView)
     })
     if(filteredFavorites.length === 0 || searchBar.value === '') {
-       favoritesView.innerHTML = `<p>No recipes found. Please search by recipe name, or select a category to filter recipes.</p>`
+        currentView.innerText = "Oops!"
+        favoritesView.innerHTML = `<p>No recipes found. Please search by recipe name, or select a category to filter recipes.</p>`
     }
     searchBar.value = ''
 }
