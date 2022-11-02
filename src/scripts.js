@@ -135,6 +135,7 @@ function displayRecipeDetailPage(event) {
     if (user.recipesToCook.length > 0 && user.recipesToCook.includes(foundRecipe)) {
         show(removeRecipeButton)
     } else {hide(removeRecipeButton)}
+    currentView.innerText = foundRecipe.name
     show(favoriteButton)
     displayRecipeInstructions(event)
     displayRecipeTotalCost(event)
