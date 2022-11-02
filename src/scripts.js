@@ -97,6 +97,7 @@ function randomizeUser(data) {
 // ~~~~~~~~~~~~~~ Main View Functions ~~~~~~~~~~~~~~~~~~~~
 function displayHomePage() {
     allRecipes.innerHTML = ''
+    currentView.innerText = 'All Recipes'
     hide(removeRecipeButton)
     show(allRecipes)
     hide(singleRecipe)
