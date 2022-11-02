@@ -120,7 +120,7 @@ function displayFavoritesPage() {
     show(filterSidebar)
     hide(ingredientSidebar)
     favoritesView.innerHTML = ''
-    currentView.innerText = 'Favorite Recipes'
+    currentView.innerText = 'All Favorite Recipes'
     user.recipesToCook.forEach((current) => {
         displayRecipePreview(current, favoritesView)
     })
@@ -191,6 +191,7 @@ radioButtons.forEach(button => {
         }
         else if(!homeView)
             favoritesView.innerHTML = ''
+            currentView.innerText = "Favorite " + capitalizeFirstLetter(button.value) + " Recipes"
             user.filterToCookByTag(button.value).forEach(current => {
             displayRecipePreview(current, favoritesView)
      })
@@ -207,6 +208,7 @@ function resetFilter() {
     } 
     else {
         favoritesView.innerHTML = ''
+        currentView.innerText = 'All Favorite Recipes'
         displayFavoritesPage()
     }
 }
