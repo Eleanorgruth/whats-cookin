@@ -202,6 +202,7 @@ function resetFilter() {
         button.checked = false})
     if(homeView) {
         allRecipes.innerHTML = ''
+        currentView.innerText = 'All Recipes'
         displayAllRecipes()
     } 
     else {
