@@ -221,7 +221,8 @@ function searchHomeRecipeByName() {
         displayRecipePreview(current, allRecipes)
     })
     if(filteredRecipes.length === 0 || searchBar.value === '') {
-       allRecipes.innerHTML = `<p>No recipes found. Please search by recipe name, or select a category to filter recipes.</p>`
+        currentView.innerText = "Oops!"
+        allRecipes.innerHTML = `<p>No recipes found. Please search by recipe name, or select a category to filter recipes.</p>`
     }
     searchBar.value = ''
 }
