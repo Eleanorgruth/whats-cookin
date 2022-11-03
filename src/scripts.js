@@ -293,12 +293,12 @@ function removeRecipeFromFavorites() {
 // ~~~~~~~~~~~~~~ Helper Functions ~~~~~~~~~~~~~~~~~~~~
 function displayRecipePreview(current, view) {
     view.innerHTML += `
-    <div class = 'fullwrap' id='${current.id}'>
+    <figure class = 'fullwrap' id='${current.id}'>
     <img src='${current.image}' alt='${current.name}'>
-    <div class='fullcap'>
+    <figcaption class='fullcap'>
         ${current.name}
-    </div>
-    </div>
+    </figcaption>
+    </figure>
     `
 }
 
