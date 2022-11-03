@@ -359,8 +359,8 @@ function addOrRemoveToPantry(user) {
         return acc
     }, []).forEach(value => {
         pantryTable.innerHTML += `
-            <div class="boxI">${value.Ingredient}</div>
-            <div class="boxA">${value.Amount}</div>
+            <section class="boxI">${value.Ingredient}</section>
+            <section class="boxA">${value.Amount}</section>
             <button type="button" class="miniButtons">-</button>
             <button type="button" class="miniButtons">+</button>
             `
