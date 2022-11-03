@@ -177,7 +177,7 @@ function displayRecipeIngredients() {
     let listOfIngredients = foundRecipe.determineIngredients(ingredients.ingredients)
     ingredientList.innerHTML = ''
     listOfIngredients.forEach((item) => {
-        ingredientList.innerHTML += `<p>${item.ingredient}</p>`
+        ingredientList.innerHTML += `<li>${item.ingredient}</li>`
     })
 }
 
