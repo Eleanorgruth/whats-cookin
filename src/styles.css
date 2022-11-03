@@ -96,6 +96,7 @@ nav {
   justify-content: center;
   padding-top: 2vh;
   padding-bottom: 2vh;
+  border: none;
 }
 
 .submit-search-button {
@@ -112,7 +113,10 @@ ul {
 }
 
 .filter {
+  padding: 0;
   padding-top: 12px;
+  margin: 0;
+  border: none;
 }
 
 .recipe-repository, .favorite {
