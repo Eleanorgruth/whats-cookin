@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">    
     <title>What's Cookin'?</title>
   </head>
   <body>
@@ -111,20 +111,11 @@
         </datalist>
       </form>
       <section class="ingredient-section hidden" id="ingredientSection">
-        <section class="can-cook-section hidden" id="can-cook-section">
-          <section class="can-cook-notification" id="can-cook-notification">
-            <img class="cooking-pot" src="../src/images/cooking.png" alt="picture of cooking pot" />
-            <p>You can cook this recipe!</p>
-          </section>
-          <section class="ingredients-needed hidden" id="ingredients-needed">
-            <h2 class="missing-ingredient-list">Missing Ingredients</h2>
-            <ul class="missing-ingredient-list" id="missing-ingredient-list">
-            </ul>
-          </section>
-        </section>
         <h2 class="ingredient-title">Ingredients</h2>
+        <article class="ingredient-info">
           <ul class="ingredient-list" id="ingredientList">
           </ul>
+        </article>
         <h2>Total Cost</h2>
         <p class="cost-amount" id="totalCost"></p>
       </section>
@@ -157,7 +148,7 @@
               <data class="boxA"></data>
               <button type="button" class="miniButtons">-</button>
               <button type="button" class="miniButtons">+</button>
-            </datalist>
+            </datalist>  
           </section>
         </section>
       </section>

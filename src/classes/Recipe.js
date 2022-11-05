@@ -18,7 +18,7 @@ class Recipe {
           acc.push(list)
         }
       })
-      return acc
+      return this.ingredientsList = acc
     }, [])
     return this.ingredientsList
   }

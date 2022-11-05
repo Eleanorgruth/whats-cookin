@@ -2,7 +2,7 @@ class Pantry {
   constructor(pantryData) {
     this.pantryData = pantryData;
     this.ingredientsNeeded = [];
-    this.userCanCook = undefined;
+    this.userCanCook = true
   }
  determineIngredientsNeeded(recipe) {
   const recipeIngredientIDList = recipe.ingredients.map((recipeIngredient) => {
@@ -43,3 +43,4 @@ checkPantryForIngredients(recipe) {
 }
 }
 export default Pantry
+
