@@ -44,7 +44,7 @@ HTML | CSS | JavaScript | Figma | Webpack | API | Mocha and Chai | Chrome Dev To
 
 ## Wins 🏆
 - Built a fully functional web application to meet the MVP outlined in the project spec 
-- Building a web accplication that is fully tabbable, includes tab focus to improve the user experience, and passes the Lighthouse Accessibility Audit at 100%
+- Building a web application that is fully tabbable, includes tab focus to improve the user experience, and passes the Lighthouse Accessibility Audit at 100%
 - Successfully learned and implemented API fetch calls
 - Highly successful team collaboration due thorough DTR, calendaring, and Agile/Scrum Workflow
 - Learned to use Figma to design our website and GitHub Projects to manage our work as a team
